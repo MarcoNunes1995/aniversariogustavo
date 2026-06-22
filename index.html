@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gustavo Henrique - 1 Aninho</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+:root{
+  --verde-escuro:#2f5d2a;
+  --verde:#4a8f3c;
+  --verde-claro:#7eb56b;
+  --verde-bg:#eef6e8;
+  --laranja:#e8782e;
+  --laranja-escuro:#c75c1c;
+  --amarelo:#f0b429;
+  --marrom:#6b4a2c;
+  --marrom-escuro:#4b3420;
+  --creme:#fbf3e1;
+  --azul-ceu:#aee0f0;
+  --vermelho:#d8503a;
+}
+
+html{
+  cursor:url('cursors/dino-green.svg') 4 4, auto;
+}
+
+*:active{
+  cursor:url('cursors/dino-red.svg') 4 4, auto !important;
+}
+
+a, button, input, .presente-card, .box{
+  cursor:url('cursors/dino-green.svg') 4 4, pointer;
+}
+
+a:active, button:active{
+  cursor:url('cursors/dino-red.svg') 4 4, pointer !important;
+}
+
+body{
+  font-family:'Baloo 2',cursive;
+  background:var(--verde-bg);
+  color:var(--marrom-escuro);
+  overflow-x:hidden;
+}
+
+::selection{
+  background:var(--amarelo);
+  color:var(--marrom-escuro);
+}
+
+/* ===== HEADER ===== */
+header{
+  background:linear-gradient(135deg,var(--verde-claro),var(--verde));
+  padding:14px 15px;
+  position:sticky;
+  top:0;
+  z-index:999;
+  box-shadow:0 3px 12px rgba(47,93,42,.25);
+  border-bottom:3px solid var(--verde-escuro);
+}
+
+nav{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  text-decoration:none;
+  color:white;
+  font-weight:700;
+  font-size:.98rem;
+  padding:10px 20px;
+  border-radius:30px;
+  background:rgba(255,255,255,.18);
+  border:2px solid rgba(255,255,255,.25);
+  transition:.25s;
+  letter-spacing:.3px;
+}
+
+nav a:hover{
+  background:var(--laranja);
+  border-color:var(--laranja-escuro);
+  transform:translateY(-2px);
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+
+/* ===== HERO ===== */
+.hero{
+  background:
+    linear-gradient(180deg, rgba(174,224,240,.35) 0%, rgba(238,246,232,.55) 100%),
+    url('convite-dinossauro.jpg') center 18%/cover no-repeat;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+  position:relative;
+}
+
+.hero-content{
+  position:relative;
+  max-width:780px;
+  background:rgba(255,253,245,.88);
+  border:4px solid var(--creme);
+  outline:3px solid var(--verde);
+  border-radius:28px;
+  padding:45px 35px 38px;
+  box-shadow:0 15px 40px rgba(47,93,42,.3);
+}
+
+.hero-badge{
+  display:inline-block;
+  background:var(--marrom);
+  color:var(--creme);
+  font-weight:700;
+  font-size:1rem;
+  padding:8px 22px;
+  border-radius:30px;
+  margin-bottom:18px;
+  box-shadow:0 4px 0 var(--marrom-escuro);
+  letter-spacing:.5px;
+}
+
+.hero h1{
+  font-size:4.2rem;
+  font-weight:800;
+  color:var(--laranja);
+  line-height:1.05;
+  text-shadow:3px 3px 0 var(--marrom);
+}
+
+.hero h2{
+  font-size:2.3rem;
+  font-weight:700;
+  color:var(--verde-escuro);
+  margin-top:6px;
+}
+
+.hero h2 span{
+  color:var(--amarelo);
+  -webkit-text-stroke:1.5px var(--marrom-escuro);
+}
+
+.subtitle{
+  margin-top:18px;
+  font-size:1.25rem;
+  color:var(--marrom-escuro);
+  font-weight:600;
+}
+
+.countdown{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:32px;
+}
+
+.box{
+  background:var(--creme);
+  padding:18px 8px;
+  border-radius:18px;
+  box-shadow:0 5px 0 var(--verde-escuro);
+  border:2px solid var(--verde);
+}
+
+.box span{
+  display:block;
+  font-size:2.1rem;
+  font-weight:800;
+  color:var(--laranja-escuro);
+}
+
+.box small{
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--verde-escuro);
+  letter-spacing:.5px;
+}
+
+.scroll-hint{
+  margin-top:28px;
+  font-size:.95rem;
+  color:var(--verde-escuro);
+  font-weight:600;
+  animation:bounce 1.8s infinite;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(6px);}
+}
+
+/* ===== SECTIONS ===== */
+.section{
+  padding:70px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.section-title{
+  font-size:2.4rem;
+  font-weight:800;
+  text-align:center;
+  color:var(--verde-escuro);
+  margin-bottom:10px;
+  text-shadow:2px 2px 0 rgba(0,0,0,.06);
+}
+
+.section-sub{
+  text-align:center;
+  color:var(--marrom);
+  font-size:1.05rem;
+  margin-bottom:36px;
+  font-weight:500;
+}
+
+.divider{
+  width:120px;
+  height:6px;
+  background:repeating-linear-gradient(90deg,var(--laranja) 0 14px,var(--amarelo) 14px 28px);
+  border-radius:6px;
+  margin:0 auto 40px;
+}
+
+.card{
+  background:#fff;
+  padding:28px;
+  border-radius:22px;
+  box-shadow:0 8px 25px rgba(75,52,32,.12);
+  margin-bottom:20px;
+  border-top:5px solid var(--verde);
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(75,52,32,.18);
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:22px;
+}
+
+.info-grid .card{
+  text-align:center;
+}
+
+.info-grid .card h3{
+  font-size:1.3rem;
+  color:var(--laranja-escuro);
+  margin-bottom:10px;
+}
+
+.info-grid .card p{
+  font-size:1.05rem;
+  font-weight:500;
+}
+
+/* ===== PRESENTES ===== */
+.presentes{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+.presente-card{
+  background:#fff;
+  padding:28px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(75,52,32,.12);
+  border-top:5px solid var(--laranja);
+  transition:.25s;
+}
+
+.presente-card:hover{
+  transform:translateY(-4px);
+}
+
+.presente-card h3{
+  color:var(--verde-escuro);
+  font-size:1.6rem;
+  margin-bottom:8px;
+}
+
+.presente-card p{
+  font-weight:500;
+}
+
+.social{
+  background:var(--creme);
+  border-left:8px solid var(--laranja);
+  padding:28px;
+  border-radius:18px;
+  margin-top:28px;
+  box-shadow:0 6px 18px rgba(75,52,32,.1);
+}
+
+.social h3{
+  color:var(--laranja-escuro);
+  font-size:1.4rem;
+  margin-bottom:10px;
+}
+
+.social p{
+  margin-top:8px;
+  line-height:1.55;
+}
+
+/* ===== FORM ===== */
+form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+input{
+  padding:15px 18px;
+  border:2px solid var(--verde-claro);
+  border-radius:14px;
+  font-size:1rem;
+  font-family:'Baloo 2',cursive;
+  background:var(--verde-bg);
+  color:var(--marrom-escuro);
+}
+
+input:focus{
+  outline:none;
+  border-color:var(--laranja);
+  background:#fff;
+}
+
+button{
+  background:var(--laranja);
+  color:white;
+  border:none;
+  padding:16px;
+  border-radius:14px;
+  font-size:1.15rem;
+  font-weight:700;
+  font-family:'Baloo 2',cursive;
+  box-shadow:0 5px 0 var(--laranja-escuro);
+  transition:.2s;
+}
+
+button:hover{
+  background:#f08a3c;
+  transform:translateY(-2px);
+  box-shadow:0 7px 0 var(--laranja-escuro);
+}
+
+button:active{
+  transform:translateY(2px);
+  box-shadow:0 2px 0 var(--laranja-escuro);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:linear-gradient(135deg,var(--verde),var(--verde-escuro));
+  color:white;
+  text-align:center;
+  padding:35px 20px;
+  margin-top:50px;
+  font-size:1.15rem;
+  font-weight:600;
+  border-top:4px solid var(--amarelo);
+}
+
+footer .foot-emoji{
+  font-size:1.6rem;
+}
+
+/* ===== FLOATING WHATSAPP ===== */
+.floating{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  background:#25D366;
+  color:white;
+  padding:15px 22px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:700;
+  font-family:'Baloo 2',cursive;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  z-index:998;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  transition:.2s;
+}
+
+.floating:hover{
+  transform:scale(1.06);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .hero h1{font-size:2.6rem;}
+  .hero h2{font-size:1.5rem;}
+  .hero-content{padding:32px 22px;}
+  .countdown{grid-template-columns:repeat(2,1fr);}
+  .section-title{font-size:1.9rem;}
+  nav a{font-size:.85rem;padding:8px 14px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<a href="#convite">🦕 Convite</a>
+<a href="#presentes">🎁 Sugestão de Presentes</a>
+<a href="#confirmacao">✅ Confirmar Presença</a>
+</nav>
+</header>
+
+<section class="hero" id="convite">
+<div class="hero-content">
+
+<span class="hero-badge">🌴 Festa Jurássica</span>
+
+<h1>Gustavo Henrique</h1>
+<h2>faz <span>1</span> aninho!</h2>
+
+<p class="subtitle">
+🦖 Venha se aventurar nessa festa jurássica!
+</p>
+
+<div class="countdown">
+
+<div class="box">
+<span id="dias">0</span>
+<small>DIAS</small>
+</div>
+
+<div class="box">
+<span id="horas">0</span>
+<small>HORAS</small>
+</div>
+
+<div class="box">
+<span id="minutos">0</span>
+<small>MINUTOS</small>
+</div>
+
+<div class="box">
+<span id="segundos">0</span>
+<small>SEGUNDOS</small>
+</div>
+
+</div>
+
+<p class="scroll-hint">⬇ role para ver mais detalhes ⬇</p>
+
+</div>
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Informações do Evento</h2>
+<div class="divider"></div>
+
+<div class="info-grid">
+
+<div class="card">
+<h3>📅 Data</h3>
+<p>18 de Julho de 2026</p>
+</div>
+
+<div class="card">
+<h3>🕕 Horário</h3>
+<p>18h</p>
+</div>
+
+<div class="card">
+<h3>📍 Local</h3>
+<p>Maju Eventos</p>
+<p>R. Líbano, 2606</p>
+<p>Bela Vista - Teresina/PI</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="presentes">
+
+<h2 class="section-title">🎁 Sugestão de Presentes</h2>
+<div class="divider"></div>
+
+<div class="presentes">
+
+<div class="presente-card">
+<h3>👕 Roupas</h3>
+<p>Tamanho 01 a 02 anos</p>
+</div>
+
+<div class="presente-card">
+<h3>👟 Calçados</h3>
+<p>Tamanho 20 a 22</p>
+</div>
+
+</div>
+
+<div class="social">
+<h3>❤️ Ação Social</h3>
+
+<p>
+Pedimos também, se possível, a contribuição de
+<strong>1kg de alimento não perecível</strong>.
+</p>
+
+<p>
+Todos os alimentos arrecadados serão destinados
+a uma ação social que realizaremos após o evento.
+</p>
+</div>
+
+</section>
+
+<section class="section" id="confirmacao">
+
+<h2 class="section-title">✅ Confirmar Presença</h2>
+<div class="divider"></div>
+
+<div class="card">
+
+<form id="formConfirmacao">
+
+<input
+type="text"
+id="nome"
+placeholder="Seu nome"
+required>
+
+<input
+type="number"
+id="acompanhantes"
+placeholder="Quantidade de acompanhantes"
+value="0">
+
+<button type="submit">
+Confirmar Presença
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="foot-emoji">🦖🎉🦕</div>
+<br>
+Gustavo Henrique faz 1 aninho!
+<br><br>
+Esperamos você para essa grande diversão!
+
+</footer>
+
+<a
+class="floating"
+href="https://wa.me/5586994731909"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<script>
+
+const evento = new Date("July 18, 2026 18:00:00").getTime();
+
+setInterval(() => {
+
+const agora = new Date().getTime();
+
+const distancia = evento - agora;
+
+const dias = Math.max(0, Math.floor(distancia / (1000*60*60*24)));
+
+const horas = Math.max(0, Math.floor((distancia % (1000*60*60*24)) / (1000*60*60)));
+
+const minutos = Math.max(0, Math.floor((distancia % (1000*60*60)) / (1000*60)));
+
+const segundos = Math.max(0, Math.floor((distancia % (1000*60)) / 1000));
+
+document.getElementById("dias").innerHTML = dias;
+document.getElementById("horas").innerHTML = horas;
+document.getElementById("minutos").innerHTML = minutos;
+document.getElementById("segundos").innerHTML = segundos;
+
+},1000);
+
+document.getElementById("formConfirmacao")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const nome =
+document.getElementById("nome").value;
+
+const acompanhantes =
+document.getElementById("acompanhantes").value;
+
+const mensagem =
+`Olá!
+
+Meu nome é ${nome}.
+
+Confirmo minha presença no aniversário de 1 aninho do Gustavo Henrique.
+
+Quantidade de acompanhantes: ${acompanhantes}
+
+Nos vemos na festa jurássica! 🦖🎉`;
+
+const url =
+`https://wa.me/5586994731909?text=${encodeURIComponent(mensagem)}`;
+
+window.open(url,'_blank');
+
+});
+
+</script>
+
+</body>
+</html>

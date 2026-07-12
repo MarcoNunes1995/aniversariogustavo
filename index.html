@@ -376,8 +376,9 @@
         /* ===== PRESENTES ===== */
         .presentes {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
+            align-items: stretch;
         }
 
         .presente-card {
@@ -389,6 +390,10 @@
             border-top: 6px solid var(--amarelo);
             transition: 0.25s;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .presente-card:hover {
@@ -406,6 +411,18 @@
         .presente-card p {
             font-weight: 500;
             font-size: 1.05rem;
+            margin: 4px 0;
+        }
+
+        .presente-card .destaque {
+            background: var(--laranja);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 8px;
+            display: inline-block;
         }
 
         /* ===== FORM ===== */
@@ -688,7 +705,13 @@
                 <p>Tamanho 20 a 22</p>
             </div>
 
-            
+            <div class="presente-card">
+                <h3>💵 Presente em PIX</h3>
+                <p>Valor sugerido</p>
+                <span class="destaque">R$ 80,00</span>
+                <p style="font-size:0.9rem; margin-top:8px; opacity:0.7;">(ou o valor que preferir)</p>
+            </div>
+
         </div>
 
     </section>
